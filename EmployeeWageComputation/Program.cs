@@ -2,10 +2,11 @@
 
 namespace EmployeeWageComputation
 {
-    public class UC2_EmployeeWage
+    public class UC3_EmployeeWage
     {
         ///Constants
-        public int is_Present = 1;
+        public int is_PartTime = 1;
+        public int is_FullTime = 2;
         public int emp_Rate_Per_Hr = 20;
 
         ///variables
@@ -14,26 +15,31 @@ namespace EmployeeWageComputation
     }
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            UC2_EmployeeWage uc2 = new UC2_EmployeeWage();
+            UC3_EmployeeWage uc3 = new UC3_EmployeeWage();
             Random random = new Random();
+            int empCheck = random.Next(0, 3);
 
             ///Computation
-            int empCheck = random.Next(0, 2);
-            if (empCheck == uc2.is_Present)
+            if (empCheck == uc3.is_FullTime)
             {
-                uc2.empHrs = 8;
+                uc3.empHrs = 8;
+            }
+            else if (empCheck == uc3.is_PartTime)
+            {
+                uc3.empHrs = 4;
             }
             else
             {
-                uc2.empHrs = 0;
+                uc3.empHrs = 0;
             }
-            uc2.empWage = uc2.empHrs * uc2.emp_Rate_Per_Hr;
-            Console.WriteLine("Emp Wage =" + uc2.empWage);
+            uc3.empWage = uc3.empHrs * uc3.emp_Rate_Per_Hr;
+            Console.WriteLine("Wage= " + uc3.empWage);
         }
     }
 }
-    
- 
+
+
+
 
